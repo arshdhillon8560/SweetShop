@@ -1,0 +1,226 @@
+.sweet-card {
+  background: white;
+  border-radius: 15px;
+  padding: 0;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.sweet-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sweet-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.sweet-card:hover .sweet-image img {
+  transform: scale(1.05);
+}
+
+.sweet-card > *:not(.sweet-image) {
+  padding: 0 25px;
+}
+
+.sweet-card > .sweet-header {
+  padding-top: 20px;
+  margin-bottom: 10px;
+}
+
+.sweet-card > .sweet-details {
+  padding: 15px 25px;
+}
+
+.sweet-card > .card-actions {
+  padding: 0 25px 20px 25px;
+  margin-top: 10px;
+}
+
+.sweet-card > .restock-section {
+  padding: 15px 25px 20px 25px;
+  margin-top: 0;
+}
+
+.sweet-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.sweet-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.sweet-header h3 {
+  margin: 0;
+  color: #333;
+  font-size: 1.3rem;
+}
+
+.category-badge {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.sweet-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+.price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #667eea;
+}
+
+.quantity {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.quantity strong {
+  color: #333;
+}
+
+.card-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.btn-purchase,
+.btn-edit,
+.btn-delete,
+.btn-save,
+.btn-cancel,
+.btn-restock {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 0.9rem;
+}
+
+.btn-purchase {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.btn-purchase:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.btn-purchase:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.btn-edit {
+  background: #4caf50;
+  color: white;
+}
+
+.btn-edit:hover {
+  background: #45a049;
+}
+
+.btn-delete {
+  background: #f44336;
+  color: white;
+}
+
+.btn-delete:hover {
+  background: #da190b;
+}
+
+.btn-save {
+  background: #2196f3;
+  color: white;
+}
+
+.btn-cancel {
+  background: #999;
+  color: white;
+}
+
+.restock-section {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+}
+
+.restock-section input {
+  flex: 1;
+  padding: 8px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.restock-section input:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.btn-restock {
+  background: #ff9800;
+  color: white;
+  padding: 8px 15px;
+}
+
+.btn-restock:hover {
+  background: #f57c00;
+}
+
+.sweet-card.edit-mode {
+  background: #f9f9f9;
+  padding: 25px;
+}
+
+.sweet-card.edit-mode form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sweet-card.edit-mode input {
+  padding: 10px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.sweet-card.edit-mode input:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
