@@ -43,8 +43,8 @@ const Dashboard = () => {
       if (searchParams.maxPrice) params.append('maxPrice', searchParams.maxPrice);
 
       const url = params.toString()
-        ? `http://localhost:3000/api/sweets/search?${params.toString()}`
-        : 'http://localhost:3000/api/sweets';
+        ? `https://sweetshop-abl3.onrender.com/api/sweets/search?${params.toString()}`
+        : 'https://sweetshop-abl3.onrender.com/api/sweets';
 
       const response = await axios.get(url);
       setSweets(response.data);
@@ -57,7 +57,7 @@ const Dashboard = () => {
 
   const handlePurchase = async (sweetId: string) => {
     try {
-      await axios.post(`http://localhost:3000/api/sweets/${sweetId}/purchase`, {
+      await axios.post(`https://sweetshop-abl3.onrender.com/api/sweets/${sweetId}/purchase`, {
         quantity: 1,
       });
       fetchSweets();

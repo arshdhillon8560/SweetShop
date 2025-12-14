@@ -32,7 +32,7 @@ const SweetCard = ({ sweet, onPurchase, isAdmin, onUpdate }: SweetCardProps) => 
   const handleEdit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:3000/api/sweets/${sweet._id}`, {
+      await axios.put(`https://sweetshop-abl3.onrender.com/api/sweets/${sweet._id}`, {
         name: editForm.name,
         category: editForm.category,
         price: parseFloat(editForm.price),
@@ -51,7 +51,7 @@ const SweetCard = ({ sweet, onPurchase, isAdmin, onUpdate }: SweetCardProps) => 
       return;
     }
     try {
-      await axios.delete(`http://localhost:3000/api/sweets/${sweet._id}`);
+      await axios.delete(`https://sweetshop-abl3.onrender.com/api/sweets/${sweet._id}`);
       onUpdate();
     } catch (error: any) {
       alert(error.response?.data?.message || 'Delete failed');
@@ -65,7 +65,7 @@ const SweetCard = ({ sweet, onPurchase, isAdmin, onUpdate }: SweetCardProps) => 
       return;
     }
     try {
-      await axios.post(`http://localhost:3000/api/sweets/${sweet._id}/restock`, {
+      await axios.post(`https://sweetshop-abl3.onrender.com/api/sweets/${sweet._id}/restock`, {
         quantity,
       });
       setRestockQuantity('');

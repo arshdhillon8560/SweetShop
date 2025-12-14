@@ -21,7 +21,7 @@ const AdminPanel = ({ onSweetUpdate }: AdminPanelProps) => {
     setError('');
 
     try {
-      await axios.post('http://localhost:3000/api/sweets', {
+      await axios.post('https://sweetshop-abl3.onrender.com/api/sweets', {
         name: formData.name,
         category: formData.category,
         price: parseFloat(formData.price),
