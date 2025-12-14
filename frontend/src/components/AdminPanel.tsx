@@ -2,6 +2,8 @@ import { useState } from 'react';
 import axios from 'axios';
 import './AdminPanel.css';
 
+const API_URL = import.meta.env.VITE_API_URL || 'https://sweetshop-abl3.onrender.com/';
+
 interface AdminPanelProps {
   onSweetUpdate: () => void;
 }
@@ -21,7 +23,7 @@ const AdminPanel = ({ onSweetUpdate }: AdminPanelProps) => {
     setError('');
 
     try {
-      await axios.post('https://sweetshop-abl3.onrender.com/api/sweets', {
+      await axios.post(`${API_URL}api/sweets`, {
         name: formData.name,
         category: formData.category,
         price: parseFloat(formData.price),

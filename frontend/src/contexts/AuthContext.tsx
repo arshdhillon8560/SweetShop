@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+
+const API_URL = import.meta.env.VITE_API_URL || 'https://sweetshop-abl3.onrender.com/';
 
 interface User {
   id: string;
@@ -47,7 +48,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 
   const login = async (email: string, password: string) => {
     try {
-      const response = await axios.post('https://sweetshop-abl3.onrender.com/api/auth/login', {
+      const response = await axios.post(`${API_URL}api/auth/login`, {
         email,
         password,
       });
@@ -65,7 +66,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 
   const register = async (email: string, password: string, name: string) => {
     try {
-      const response = await axios.post('https://sweetshop-abl3.onrender.com/api/auth/register', {
+      const response = await axios.post(`${API_URL}api/auth/register`, {
         email,
         password,
         name,

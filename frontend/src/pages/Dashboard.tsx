@@ -7,6 +7,8 @@ import SearchBar from '../components/SearchBar';
 import AdminPanel from '../components/AdminPanel';
 import './Dashboard.css';
 
+const API_URL = import.meta.env.VITE_API_URL || 'https://sweetshop-abl3.onrender.com/';
+
 interface Sweet {
   _id: string;
   name: string;
@@ -43,8 +45,8 @@ const Dashboard = () => {
       if (searchParams.maxPrice) params.append('maxPrice', searchParams.maxPrice);
 
       const url = params.toString()
-        ? `https://sweetshop-abl3.onrender.com/api/sweets/search?${params.toString()}`
-        : 'https://sweetshop-abl3.onrender.com/api/sweets';
+        ? `${API_URL}api/sweets/search?${params.toString()}`
+        : `${API_URL}api/sweets`;
 
       const response = await axios.get(url);
       setSweets(response.data);
@@ -57,7 +59,7 @@ const Dashboard = () => {
 
   const handlePurchase = async (sweetId: string) => {
     try {
-      await axios.post(`https://sweetshop-abl3.onrender.com/api/sweets/${sweetId}/purchase`, {
+      await axios.post(`${API_URL}api/sweets/${sweetId}/purchase`, {
         quantity: 1,
       });
       fetchSweets();

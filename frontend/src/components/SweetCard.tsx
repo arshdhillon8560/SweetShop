@@ -2,6 +2,8 @@ import { useState } from 'react';
 import axios from 'axios';
 import './SweetCard.css';
 
+const API_URL = import.meta.env.VITE_API_URL || 'https://sweetshop-abl3.onrender.com/';
+
 interface Sweet {
   _id: string;
   name: string;
@@ -32,7 +34,7 @@ const SweetCard = ({ sweet, onPurchase, isAdmin, onUpdate }: SweetCardProps) => 
   const handleEdit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await axios.put(`https://sweetshop-abl3.onrender.com/api/sweets/${sweet._id}`, {
+      await axios.put(`${API_URL}api/sweets/${sweet._id}`, {
         name: editForm.name,
         category: editForm.category,
         price: parseFloat(editForm.price),
@@ -51,7 +53,7 @@ const SweetCard = ({ sweet, onPurchase, isAdmin, onUpdate }: SweetCardProps) => 
       return;
     }
     try {
-      await axios.delete(`https://sweetshop-abl3.onrender.com/api/sweets/${sweet._id}`);
+      await axios.delete(`${API_URL}api/sweets/${sweet._id}`);
       onUpdate();
     } catch (error: any) {
       alert(error.response?.data?.message || 'Delete failed');
@@ -65,7 +67,7 @@ const SweetCard = ({ sweet, onPurchase, isAdmin, onUpdate }: SweetCardProps) => 
       return;
     }
     try {
-      await axios.post(`https://sweetshop-abl3.onrender.com/api/sweets/${sweet._id}/restock`, {
+      await axios.post(`${API_URL}api/sweets/${sweet._id}/restock`, {
         quantity,
       });
       setRestockQuantity('');
