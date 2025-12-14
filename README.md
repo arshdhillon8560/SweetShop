@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🍬 Sweet Shop - Full Stack Application
 
 A modern full-stack e-commerce application for managing a sweet shop with user authentication, inventory management, and admin controls.
@@ -126,3 +127,6 @@ See `ADMIN_GUIDE.md` for detailed instructions on:
 - Adding, editing, and deleting sweets
 - Managing inventory
 
+=======
+# SweetShop
+>>>>>>> 416feffced5338782db6e28d14ff6f8b2f4bf46e
