@@ -7,7 +7,7 @@ async function bootstrap() {
   
   // Enable CORS for frontend
   app.enableCors({
-    origin: 'http://localhost:3001',
+    origin: 'https://sweet-shop-sepia-mu.vercel.app',
     credentials: true,
   });
   
