@@ -7,9 +7,13 @@ async function bootstrap() {
   
   // Enable CORS for frontend
   app.enableCors({
-    origin: 'https://sweet-shop-sepia-mu.vercel.app',
+    origin: [
+      'http://localhost:3001',
+      'https://sweet-shop-sepia-mu.vercel.app'
+    ],
     credentials: true,
   });
+  
   
   // Global validation pipe
   app.useGlobalPipes(new ValidationPipe({
