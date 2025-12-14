@@ -145,7 +145,7 @@ const SweetCard = ({ sweet, onPurchase, isAdmin, onUpdate }: SweetCardProps) => 
         <span className="category-badge">{sweet.category}</span>
       </div>
       <div className="sweet-details">
-        <div className="price">${sweet.price.toFixed(2)}</div>
+        <div className="price">₹{sweet.price.toFixed(2)}</div>
         <div className="quantity">
           In Stock: <strong>{sweet.quantity}</strong>
         </div>

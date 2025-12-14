@@ -84,10 +84,10 @@ const Dashboard = () => {
             </span>
             {user?.isAdmin && (
               <button
-                className="btn-secondary"
+                className="btn-admin"
                 onClick={() => setShowAdminPanel(!showAdminPanel)}
               >
-                {showAdminPanel ? 'Hide Admin' : 'Show Admin'}
+                {showAdminPanel ? '🔒 Hide Admin Panel' : '⚙️ Admin Panel'}
               </button>
             )}
             <button className="btn-secondary" onClick={handleLogout}>
