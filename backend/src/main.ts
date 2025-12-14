@@ -1,41 +1,25 @@
 import { NestFactory } from '@nestjs/core';
 import { ValidationPipe } from '@nestjs/common';
 import { AppModule } from './app.module';
-import { ExpressAdapter } from '@nestjs/platform-express';
-import serverlessExpress from '@vendia/serverless-express';
-import express from 'express';
 
-let cachedServer: any;
-
-async function bootstrapServer() {
-  const expressApp = express();
-
-  const app = await NestFactory.create(
-    AppModule,
-    new ExpressAdapter(expressApp),
-  );
-
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule);
+  
+  // Enable CORS for frontend
   app.enableCors({
-    origin: '*', // change later if needed
+    origin: 'http://localhost:3001',
     credentials: true,
   });
-
-  app.useGlobalPipes(
-    new ValidationPipe({
-      whitelist: true,
-      transform: true,
-    }),
-  );
-
-  await app.init();
-
-  return serverlessExpress({ app: expressApp });
+  
+  // Global validation pipe
+  app.useGlobalPipes(new ValidationPipe({
+    whitelist: true,
+    transform: true,
+  }));
+  
+  const port = process.env.PORT || 3000;
+  await app.listen(port);
+  console.log(`Application is running on: http://localhost:${port}`);
 }
+bootstrap();
 
-// 👇 THIS is what Vercel calls
-export const handler = async (event: any, context: any) => {
-  if (!cachedServer) {
-    cachedServer = await bootstrapServer();
-  }
-  return cachedServer(event, context);
-};
