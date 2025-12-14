@@ -115,7 +115,7 @@ The application features a modern, responsive design with:
 - First registered user is a regular user (not admin)
 - To create an admin user, you can:
   1. Use the script: `cd backend && npm run create-admin`
-  2. Or manually update MongoDB: `db.users.updateOne({email: "user@example.com"}, {$set: {isAdmin: true}})`
+  2. Or manually update MongoDB: `db.users.updateOne({email: "admin@sweetshop.com"}, {$set: {isAdmin: true}})`
 - All passwords are hashed using bcrypt
 - JWT tokens expire after 7 days (configurable)
 
